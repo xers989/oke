@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: photview-deployment
+
+spec:
+ replicas: 5
+ selector:
+  matchLabels:
+    app: photo-view
+
+template:
+ metadata:
+  labels:
+   app: photo-view
+   env: stage
+ spec:
+  containers:
+  - image: phot-view:latest
+    name: photoview-container
+    ports:
+    - containerPort: 80
