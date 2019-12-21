@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: photview-deployment
+ name: photoview-deployment
 
 spec:
- replicas: 5
+ replicas: 2
  selector:
   matchLabels:
     app: photo-view
