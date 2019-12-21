@@ -9,14 +9,14 @@ spec:
   matchLabels:
     app: photo-view
 
-template:
- metadata:
-  labels:
-   app: photo-view
-   env: stage
- spec:
-  containers:
-  - image: phot-view:latest
-    name: photoview-container
-    ports:
-    - containerPort: 80
+ template:
+  metadata:
+   labels:
+    app: photo-view
+    env: stage
+  spec:
+   containers:
+   - image: halilinux/photo-view
+     name: photoview-container
+     ports:
+     - containerPort: 80
