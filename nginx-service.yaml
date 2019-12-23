@@ -7,6 +7,6 @@ spec:
  ports:
   - port: 80
     targetPort: 80
-    portocol: TCP
+    protocol: TCP
  selector:
   app: nginx-view
