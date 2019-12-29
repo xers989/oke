@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: www
+ labels:
+  name: nginx
+  method: Pod
+spec:
+ containers:
+ - name: nginx
+   image: nginx
+   ports:
+    - containerPort: 80
+   volumeMounts:
+    - mountPath: /etc/www
+      name: www-data
+   resources:
+    requests:
+     cpu: 800m
+     memory: 8G
+ restartPolicy: OnFailure
+ volumes:
+  - name: www-data

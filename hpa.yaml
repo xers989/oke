@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2beta
+kind: HorizontalPodAutoscaler
+metadata:
+ name: autho-hpa
+spec:
+ minReplicas: 1
+ maxReplicas: 6
+ metrics:
+ - resource:
+   name: cpu
+   targetAverageUtilization: 30
+  type: Resource
+scaleTargetRef:
+ apiVersion: apps/v1
+ kind: ReplicaSet
+ name: nginx-rs

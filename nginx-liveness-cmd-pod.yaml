@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: liveness-cmd-www
+ labels:
+  name: nginx
+  method: Pod
+  liveness: http
+spec:
+ containers:
+ - name: liveness
+   image: nginx
+   ports:
+    - containerPort: 80
+   args:
+   - /bin/sh
+   - -c
+   - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy
+   livenessProbe:
+    exec:
+     command:
+     - cat
+     - /tmp/healthy 
+    initialDelaySeconds: 10
+    periodSeconds: 5
+   resources:
+    requests:
+     cpu: 800m
+     memory: 8G
+ restartPolicy: OnFailure
